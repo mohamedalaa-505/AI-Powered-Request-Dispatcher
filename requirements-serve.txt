@@ -1,0 +1,8 @@
+# Minimal runtime deps for the inference API (app/, src/config.py, src/model.py).
+# This is what the Docker image installs -- keep it lean.
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+pydantic==2.9.2
+pydantic-settings==2.5.2
+torch==2.2.2
+transformers==4.44.2
