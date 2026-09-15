@@ -1,0 +1,17 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - MODEL_DIR=/app/model_artifacts
+      - MODEL_SOURCE=local
+      - MAX_SEQ_LENGTH=128
+    volumes:
+      - ./model_artifacts:/app/model_artifacts:ro
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8080/health')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s

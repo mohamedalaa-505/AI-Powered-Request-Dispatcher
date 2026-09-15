@@ -1,0 +1,16 @@
+# Render "Blueprint" deploy: push this repo, then in Render dashboard choose
+# "New > Blueprint" and point it at the repo. Docs: https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: ai-dispatcher
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: standard  # needs enough RAM for torch + distilbert; free tier will be tight
+    healthCheckPath: /health
+    envVars:
+      - key: MODEL_DIR
+        value: /app/model_artifacts
+      - key: MODEL_SOURCE
+        value: local
+      - key: PORT
+        value: "8080"

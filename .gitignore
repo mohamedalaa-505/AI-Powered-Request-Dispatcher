@@ -1,0 +1,71 @@
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+*.egg
+
+# ===== Virtual environments =====
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# ===== Environment / secrets =====
+.env
+*.env.local
+!.env.example
+
+# ===== Jupyter =====
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# ===== Data =====
+data/
+!data/.gitkeep
+*.csv
+*.tsv
+*.json
+!requirements.txt
+!package.json
+!docker-compose.json
+
+# ===== Model artifacts / large binaries =====
+model_artifacts/
+distilbert-local-base/
+*.bin
+*.pt
+*.pth
+*.onnx
+*.h5
+*.ckpt
+*.safetensors
+
+# ===== Testing / coverage =====
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.mypy_cache/
+.ruff_cache/
+
+# ===== Docker =====
+*.log
+
+# ===== OS / editor junk =====
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# ===== Logs =====
+logs/
+*.log

@@ -1,0 +1,30 @@
+# Fly.io deploy config. Run `fly launch --copy-config` from the project root
+# (after renaming/moving this into the root as fly.toml), then `fly deploy`.
+app = "ai-dispatcher"
+primary_region = "iad"
+
+[build]
+
+[env]
+  MODEL_DIR = "/app/model_artifacts"
+  MODEL_SOURCE = "local"
+  PORT = "8080"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+
+  [[http_service.checks]]
+    grace_period = "20s"
+    interval = "30s"
+    method = "GET"
+    timeout = "5s"
+    path = "/health"
+
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 2
+  memory_mb = 2048
